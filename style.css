@@ -159,6 +159,11 @@ nav a:first-child {
     border-radius: 10px;
 }
 
+.tecnologias-proyecto{
+    display: flex;
+    gap: 5px; /*gap es el espacio entre elementos hijos de un contenedor*/
+}
+
 /* SECCION DE PROYECTOS */
 
 #proyectos {
@@ -191,3 +196,4 @@ nav a:first-child {
     margin-right: 20px;
     text-decoration: none;
 }
+
