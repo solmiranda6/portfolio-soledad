@@ -197,3 +197,10 @@ nav a:first-child {
     text-decoration: none;
 }
 
+.estado-proyecto{
+    display: inline-block; /*block actua como un bloque y ocupe su propia linea*/
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(27, 158, 185);
+}
+
