@@ -28,7 +28,12 @@ function cambiar_modo(){
 }
 
 const tecnologias = ["html", "css", "javascript", "mysql", "java", "c++"];
-        //parametros: 1° elemento, 2° indice del elemento
+const contenedor_tecnologias = document.querySelector(".tecnologias-lista");
+
+//parametros: 1° elemento, 2° indice del elemento
 tecnologias.forEach((tecnologia, index) => { // por cada elemento del array tecnologias, lo llamamos tecnologia y en el console log mostramos esa variable
-    console.log(tecnologia + " - " + index);
+    const span = document.createElement("span");
+    span.textContent = tecnologia;
+
+    contenedor_tecnologias.appendChild(span);
 });
