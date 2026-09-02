@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background-color: #091a28;
+    color: white;
+}
+
+body.modo-claro {
+    background-color: #e2e8ee;
+    color: #205954;
+
+    a{
+        color: #6a6b6e;
+    }
+
+    p{
+        color: #6a6b6e;
+    }
+}
+
+header {
+    padding: 20px 40px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:first-child {
+    color: #20e3d2;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+/* SECCION DE INICIO*/
+.hero {
+    min-height: 60vh;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.hero h1 {
+    font-size: 60px;
+    margin: 10px 0;
+}
+
+.hero h1 {
+    color: #20e3d2;
+}
+
+
+.btn-proyectos {
+    background-color: #20e3d2;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btn-proyectos:hover {
+    transform: translateY(-2px);
+}
+
+.hero p {
+    color: #aab4c0;
+    font-size: 18px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.hero-texto {
+    width: 50%;
+}
+
+.hero-visual {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #16343d;
+    border-radius: 15px;
+    padding: 60px;
+}
+
+.hero-visual p {
+    color: #20e3d2;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.codigo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: monospace;
+    color: #aab4c0;
+    font-size: 16px;
+}
+
+.codigo span:nth-child(2),
+.codigo span:nth-child(3),
+.codigo span:nth-child(4) {
+    padding-left: 25px;
+}
+
+.codigo strong {
+    color: #20e3d2;
+}
+
+/* SECCION DE SOBRE MI */
+.sobre-mi {
+    margin: 40px 60px;
+    padding: 30px;
+    border: 1px solid #16343d;
+    border-radius: 15px;
+}
+
+.sobre-mi h2 {
+    color: #20e3d2;
+}
+
+.sobre-mi p {
+    color: #aab4c0;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+/* SECCION DE TECNOLOGIAS */
+
+#tecnologias {
+    margin: 60px;
+}
+
+.tecnologias-lista {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tecnologias-lista span {
+    padding: 15px 25px;
+    border: 1px solid #16343d;
+    border-radius: 10px;
+}
+
+/* SECCION DE PROYECTOS */
+
+#proyectos {
+    margin: 60px;
+}
+
+.proyecto {
+    padding: 25px;
+    border: 1px solid #16343d;
+    border-radius: 12px;
+    max-width: 350px;
+}
+
+.proyecto h3 {
+    color: #20e3d2;
+}
+
+.proyecto a {
+    color: #20e3d2;
+}
+
+/* SECCION DE CONTACTO*/
+
+#contacto {
+    margin: 60px;
+}
+
+#contacto a {
+    color: #20e3d2;
+    margin-right: 20px;
+    text-decoration: none;
+}

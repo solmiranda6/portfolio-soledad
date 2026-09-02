@@ -1,0 +1,109 @@
+<!DOCTYPE html> <!-- indica que esto es html5-->
+<html lang="en"> <!-- contenedor de nuestra pagina-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="modo-claro">
+    <header> <!-- encabezado donde va a ir el menu -->
+        
+        <nav>
+            <a href="#logo-inicio" id="logo-inicio" class="">SM</a>
+            <a href="#inicio" class="">Inicio</a>
+            <a href="#sobre-mi" class="">Sobre mi</a>
+            <a href="#tecnologias" class="">Tecnologías</a>
+            <a href="#proyectos" class="">Proyectos</a>
+            <a href="#contacto" class="">Contacto</a> 
+            <button id="btn-theme"> <i id="icono-theme" class="bi bi-moon"> </i> </button>
+        </nav>
+    </header>
+
+    <main> <!-- contenido principal -->
+        <section id="inicio" class="hero">
+            <div class="hero-texto">
+                <h1>Hola, soy Soledad</h1>
+                <p>Desarrolladora Full stack</p>
+                <p>Creo aplicaciones web y me interesa la automatizacion, la inteligencia artificial y la ciberseguridad.</p>
+                <a class="btn-proyectos" href="#proyectos"> Ver proyectos </a>
+            </div> 
+
+            <div class="hero-visual">
+                <div class="codigo">
+                    <span><strong>const</strong> developer = {</span>
+                    <span>nombre: "Soledad",</span>
+                    <span>rol: "Full Stack Developer",</span>
+                    <span>aprendiendo: "Siempre algo nuevo 🚀"</span>
+                    <span>};</span>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="sobre-mi" class="sobre-mi">
+            <h2>Sobre Mi</h2>
+
+            <p> Soy desarrolladora full stack, creo aplicaciones web mientras aprendo nuevas tecnologias junto a la IA. ♥ </p>
+        </section>
+
+        <section id="tecnologias">
+            <h2>Tecnologías</h2>
+
+            <div class="tecnologias-lista">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Java</span>
+                <span>C++</span>
+                <span>MySQL</span>
+            </div>
+
+        </section>
+        
+        <section id="proyectos">
+            <h2>Proyectos</h2>
+
+            <div class="proyecto">
+                <h3>Tienda de cosméticos</h3>
+                <p>E-commerce desarrollado con Node.js, Express y MySQL.</p>
+                <a href="#">Ver proyecto</a>
+            </div>
+
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+
+            <p>¿Querés contactarme? Podés encontrarme acá:</p>
+
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="mailto:solmmiranda6@gmail.com">Email</a>
+        </section>
+
+        
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+    
+</body>
+
+
+</html>
