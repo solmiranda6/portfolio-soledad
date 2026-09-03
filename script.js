@@ -67,7 +67,9 @@ const proyecto3 = {
 const proyectos = [proyecto, proyecto2, proyecto3];
 const contenedor_proyectos = document.querySelector(".lista-proyectos");
 
-proyectos.forEach((proyecto, index)=> {
+
+function mostrar_proyectos(lista){
+    lista.forEach((proyecto, index)=> {
     const tarjeta = document.createElement("div");
     const titulo = crearElemento("h3", proyecto.nombre);
     const descripcion = crearElemento("p", proyecto.descripcion);
@@ -113,6 +115,10 @@ proyectos.forEach((proyecto, index)=> {
 
     
 });
+}
+
+mostrar_proyectos(proyectos);
+
 
 function crearElemento(tipo, texto){ //tipo vendria a ser la etiqueta que se va a crear. Texto es el contenido de esa etiqueta.
     const elemento = document.createElement(tipo);
@@ -126,9 +132,42 @@ const tecnologias_map = tecnologias.map( (tecnologia)=>{ //map() genera un array
 });
 
 
-const proyectos_terminados = proyectos.filter( (proyecto) => { //filter() selecciona elementos y crea un array nuevo solo con los que cumplen una condicion
-    return proyecto.estado === "en desarrollo";
-} );
-console.log(proyectos_terminados)
+// const proyectos_terminados = proyectos.filter( (proyecto) => { //filter() selecciona elementos y crea un array nuevo solo con los que cumplen una condicion
+//     return proyecto.estado === "en desarrollo";
+// } );
 
+// const proyecto_encontrado = proyectos.find((proyecto)=>{ //find() busca y devuelve el primer elemento que cumple una condicion
+//     return proyecto.nombre === "Netflix";
+// });
+
+// const hay_terminados = proyectos.some((proyecto)=>{ //some() sirve para ver si hay por lo menos uno que cumpla la condicion y solo devuelve true o false
+//     return proyecto.estado === "pausado";
+
+// });
+
+// const todos_terminados = proyectos.every((proyecto) =>{ //every() sirve para ver si todos cumplen la condicion, solo basta con que uno no cumpla y devuelve false
+//     return proyecto.estado === "terminado";
+// });
+
+
+const proyectos_en_desarrollo = proyectos.filter( (proyecto) => {
+    return proyecto.estado === "en desarrollo";
+});
+
+const filtros_proyectos = document.getElementById("filtro-proyectos");
+filtros_proyectos.addEventListener("change", () => {
+    const estado_seleccionado = filtros_proyectos.value;
+    contenedor_proyectos.innerHTML = "";
+
+    if(estado_seleccionado === "todos"){
+        mostrar_proyectos(proyectos);
+    }else{
+        const proyectos_filtrados = proyectos.filter( (proyecto) => {
+            return proyecto.estado === estado_seleccionado;
+        });
+
+        mostrar_proyectos(proyectos_filtrados);
+
+    };
+});
 
