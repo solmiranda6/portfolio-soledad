@@ -1,4 +1,4 @@
-const btn_sm = document.getElementById("logo-inicio");
+// Configuracion de modo oscuro y claro
 
 const btn_theme = document.getElementById("btn-theme");
 
@@ -27,10 +27,12 @@ function cambiar_modo(){
     return;
 }
 
+// Insertar tecnologias en las tarjetas
+
 const tecnologias = ["html", "css", "javascript", "mysql", "java", "c++"]; //array: guarda una lista de cosas
 const contenedor_tecnologias = document.querySelector(".tecnologias-lista");
 
-//parametros: 1° elemento, 2° indice del elemento
+      //parametros: 1° elemento, 2° indice del elemento
 tecnologias.forEach((tecnologia, index) => { // por cada elemento del array tecnologias, lo llamamos tecnologia y en el console log mostramos esa variable
     const span = document.createElement("span");
     span.textContent = tecnologia;
@@ -54,27 +56,32 @@ const proyecto2 = {
     estado: "en desarrollo"
 }; 
 
-const proyectos = [proyecto, proyecto2];
+const proyecto3 = {
+    nombre: "StockIA",
+    descripcion: "app de control de stock para cualquier tipo de empresa con Inteligencia Artificial",
+    tecnologias: ["Java","Spring Boot","C++"],
+    github: "",
+    estado: "en desarrollo"
+};
+
+const proyectos = [proyecto, proyecto2, proyecto3];
 const contenedor_proyectos = document.querySelector(".lista-proyectos");
 
 proyectos.forEach((proyecto, index)=> {
     const tarjeta = document.createElement("div");
-    const titulo = document.createElement("h3");
-    const descripcion = document.createElement("p");
+    const titulo = crearElemento("h3", proyecto.nombre);
+    const descripcion = crearElemento("p", proyecto.descripcion);
     const cont_tec_proyectos = document.createElement("div");
     const enlace = document.createElement("a");
-    const estado = document.createElement("span");
+    const estado = crearElemento("span", proyecto.estado);
+
+
 
     tarjeta.classList.add("proyecto");
-
-    titulo.textContent = proyecto.nombre;
-
-    descripcion.textContent = proyecto.descripcion;
 
     enlace.textContent = "Ver proyecto";
     enlace.href = proyecto.github;
 
-    estado.textContent = proyecto.estado;
     estado.classList.add("estado-proyecto");
 
     tarjeta.appendChild(titulo);
@@ -84,9 +91,7 @@ proyectos.forEach((proyecto, index)=> {
     
 
     proyecto.tecnologias.forEach((tecnologia => {
-        const span = document.createElement("span");
-
-        span.textContent = tecnologia;
+        const span = crearElemento("span", tecnologia);
 
         cont_tec_proyectos.appendChild(span);
         
@@ -99,14 +104,31 @@ proyectos.forEach((proyecto, index)=> {
     if(proyecto.estado === "terminado"){
         tarjeta.appendChild(enlace);
     }else if (proyecto.estado === "en desarrollo"){
-        const span = document.createElement("span");
-        span.textContent = "Proximamente!";
+        const span = crearElemento("span", "Proximamente :)");
         tarjeta.appendChild(span)
     }else{
-        const span = document.createElement("span");
-        span.textContent = "Pausado";
+        const span = crearElemento("span", "Pausado");
         tarjeta.appendChild(span)
     }
 
     
 });
+
+function crearElemento(tipo, texto){ //tipo vendria a ser la etiqueta que se va a crear. Texto es el contenido de esa etiqueta.
+    const elemento = document.createElement(tipo);
+    elemento.textContent = texto;
+
+    return elemento;
+};
+
+const tecnologias_map = tecnologias.map( (tecnologia)=>{ //map() genera un array nuevo a partir de otro array. No modifica el array original.
+    return tecnologia.toUpperCase();
+});
+
+
+const proyectos_terminados = proyectos.filter( (proyecto) => { //filter() selecciona elementos y crea un array nuevo solo con los que cumplen una condicion
+    return proyecto.estado === "en desarrollo";
+} );
+console.log(proyectos_terminados)
+
+
