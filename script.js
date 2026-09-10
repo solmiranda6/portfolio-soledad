@@ -149,6 +149,7 @@ const tecnologias_map = tecnologias.map( (tecnologia)=>{ //map() genera un array
 //     return proyecto.estado === "terminado";
 // });
 
+// SECTOR DE BOTONES PARA FILTRAR LAS TECNOLOGIAS
 
 const proyectos_en_desarrollo = proyectos.filter( (proyecto) => {
     return proyecto.estado === "en desarrollo";
@@ -170,4 +171,61 @@ filtros_proyectos.addEventListener("change", () => {
 
     };
 });
+//sort() sirve para ordenar un array.
+// const numeros = [10,2,30,5,100];
+// numeros.sort((b, a) => { //para ordenar de menor a mayor se ponen parametros y se restan entre si, ej: a- b es para ordenar de menor a mayor. Ej b-a es para ordenar de mayor a menor.
+//     return a-b;
+// });
+// console.log(numeros)
 
+//localeCompare() sirve para comparar dos textos y decidir cuál debería ir primero alfabéticamente.
+// const mujer = "soledad";
+// const hombre = "facundo";
+// const comparacion = hombre.localeCompare(mujer);
+// //Con localeCompare() lo importante no es tanto si devuelve exactamente 1 o -1, sino el signo:
+// // Negativo → el primer texto va antes.
+// // Positivo → el primer texto va después.
+// console.log(comparacion)
+
+// const proyectos_ordenados = [...proyectos]; //[...arrayOriginal]: los primeros tres puntos se llama spread operator y sirve para copiar arrays sin modificar el array original
+// proyectos_ordenados.sort((a,b)=>{ //sort() y localCompare() permite ordenar textos alfabeticamente.
+//     const comparacion = b.nombre.localeCompare(a.nombre);
+//     return comparacion; // A CONTA B = ORDEN DE A-Z
+//                         // B CONTRA A = ORDEN DE Z-A
+// });
+
+// ORDENAR ALFABETICAMENTE CON SORT Y LOCALECOMPARE
+const select_ordenProyectos = document.getElementById("orden-proyectos");
+const select_filtrosProyectos = document.getElementById("filtro-proyectos");
+
+select_ordenProyectos.addEventListener("change", ()=>{
+    const orden_seleccionado = select_ordenProyectos.value;
+    const filtro_seleccionado = select_filtrosProyectos.value;
+    let lista_proyectos = [...proyectos];
+    contenedor_proyectos.innerHTML= "";
+
+    // Primero se filtran los proyectos para que no se rompan cuando se ordene alfabeticamente
+    if (filtro_seleccionado != "todos"){//si el filtro no es "todos", que muestre los proyectos que coincidan con el filtro seleccionado
+        lista_proyectos = proyectos.filter((proyecto) => {
+            return proyecto.estado === filtro_seleccionado
+        });
+    }
+
+
+    if(orden_seleccionado === "a-z"){
+        const proyectos_ordenados = [...lista_proyectos];
+        proyectos_ordenados.sort((a,b)=>{
+            const comparacion = a.nombre.localeCompare(b.nombre);
+            return comparacion;
+        });
+        mostrar_proyectos(proyectos_ordenados);
+    }else{
+        const proyectos_ordenados = [...lista_proyectos];
+        proyectos_ordenados.sort((a,b)=>{
+            const comparacion = b.nombre.localeCompare(a.nombre);
+            return comparacion;
+        });
+        mostrar_proyectos(proyectos_ordenados);
+    }
+
+});
